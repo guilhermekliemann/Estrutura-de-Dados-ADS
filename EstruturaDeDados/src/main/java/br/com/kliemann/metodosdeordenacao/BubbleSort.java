@@ -30,4 +30,20 @@ public class BubbleSort {
         }
         return x;
     }    
+    
+    public static int[] bubble_sort_desc(int[] x) {
+        int aux = 0;
+
+        for (int i = 1; i < x.length; i++) {
+            for (int j = 0; j < x.length - 1; j++) {
+                if (x[j] < x[j + 1]) {
+                    aux = x[j];
+                    x[j] = x[j + 1];
+                    x[j + 1] = aux;
+                }
+            }
+        }        
+        return x;
+    }
+    
 }
