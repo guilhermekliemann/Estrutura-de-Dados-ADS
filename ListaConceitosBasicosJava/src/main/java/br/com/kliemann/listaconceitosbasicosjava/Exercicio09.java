@@ -20,17 +20,29 @@ public class Exercicio09 {
             System.out.println("Posição " + i + " - " + animais[i]);
         }
         
+        System.out.println("\n");
+        
         Scanner sc = new Scanner(System.in);
-        System.out.println("\nEscolha a primeira posição para trocar os nomes:");
-        int troca1 = sc.nextInt();
-        System.out.println("Escolha a segunda posição para trocar os nomes:");
-        int troca2 = sc.nextInt();
+        System.out.println(">Escolha a posição inicial da troca:");
+        int x = sc.nextInt();
+        System.out.println(">Escolha posição final da troca:");
+        int y = sc.nextInt();
+        
+        System.out.println("\n");
+        
+        troca(x, y, animais);
+        
+        for(int i=0; i<animais.length; i++) {
+            System.out.println("Posição " + i + " - " + animais[i]);
+        }
         
     }
-    
-    private static void troca(String[] animais, int troca1, int troca2) {
 
-        int aux;
+    public static void troca(int x, int y, String[] animais) {
+        
+        String aux = animais[x];
+        animais[x] = animais[y];
+        animais[y] = aux;
         
     }
     
