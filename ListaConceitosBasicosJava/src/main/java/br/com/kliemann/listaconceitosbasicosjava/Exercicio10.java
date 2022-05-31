@@ -18,13 +18,6 @@ public class Exercicio10 {
         System.out.println("Digite o nome de um animal para verificar se ele está presente no vetor:");
         String nomeAnimal = sc.next();
         
-        String[] animais = {"Cachorro","Gato","Peixe","Leão","Onça","Tucano","Flamingo","Tubarão","Vaca","Porco"};
-
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("Digite o nome de um animal para verificar se ele está presente no vetor:");
-        String nomeAnimal = sc.next();
-        
         System.out.println(verificaAnimal(animais, nomeAnimal));
         
     }
