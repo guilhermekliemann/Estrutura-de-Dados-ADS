@@ -1,5 +1,7 @@
 package br.com.kliemann.listaconceitosbasicosjava;
 
+import java.util.Scanner;
+
 public class Exercicio17 {
 
     public static void main(String[] args) {
@@ -10,50 +12,54 @@ public class Exercicio17 {
         já vistas em outros exercícios.
         */
         
-        //INCOMPLETO
+        Scanner sc = new Scanner(System.in);
+        double[][] triangulo = new double[8][3];
         
-        int[][] matriz = {
-            {1,2,6},
-            {4,4,4},
-            {7,4,5},
-            {3,8,8},
-            {4,5,4},
-            {2,1,2},
-            {5,6,5,},
-            {7,8,9}
-        };
+        for(int i=0; i<triangulo.length; i++) {
+            System.out.println("\nPIRAMIDE " + (i+1));
+            System.out.println("LADO A: ");
+            triangulo[i][0] = sc.nextDouble();
+            System.out.println("LADO B: ");
+            triangulo[i][1] = sc.nextDouble();
+            System.out.println("LADO C: ");
+            triangulo[i][2] = sc.nextDouble();
+        }
         
-        for(int i = 0; i < matriz.length; i++) {
-            for(int j = 0; j < matriz[i].length; j++) {
-                System.out.print(matriz[i][j] + " ");
+        System.out.println("\n");
+        
+        for(int i = 0; i < triangulo.length; i++) {
+            for(int j = 0; j < triangulo[i].length; j++) {
+                System.out.print(triangulo[i][j] + " ");
             }
             System.out.println(" ");
         }
         
+        String msg = "";
+        
+        for(int i=0; i<triangulo.length; i++) {
+            msg += "\nTriângulo " + (i+1) + " - " + tipoTriangulo(triangulo[i][0],triangulo[i][1],triangulo[i][2]);
+        }
+        
+        System.out.println(msg);
+        
     }
     
-    public static void tipoTriangulo() {
+    public static String tipoTriangulo(double a, double b, double c) {
         
-        /*
-        if (a<=0 || b<=0 || c<=0) {
-         System.out.println("Lados nulos ou negativos nao sao aceitos.");
-         System.exit(2);
-      }
-
-      if (a>=b+c || b>=c+a || c>=a+b) {
-         System.out.println("Triangulo inexistente.");
-         System.exit(3);
-      }
-
-      if (a==b && b==c)
-         System.out.println("Triangulo equilatero.");
-
-      else if (a==b || b==c || c==a)
-         System.out.println("Triangulo isosceles.");
-
-      else
-         System.out.println("Triangulo escaleno.");
-        */
+        String msg = "Não é um triângulo!";
+        
+        if (a == b || b == c || c == a) {
+            if (a == b && b == c) {
+                msg = "Triângulo equilátero!";
+            } else {
+                msg = "Triângulo isósceles!";
+            }
+        }
+        if (a != b && b != c && c != a) {
+            msg = "Triângulo escaleno!";
+        }
+        
+        return msg;
         
     }
     
